@@ -81,6 +81,9 @@ importers:
       prettier:
         specifier: ^3.0.0
         version: 3.2.5
+      rimraf:
+        specifier: ^5.0.5
+        version: 5.0.5
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -144,6 +147,9 @@ importers:
       react-router-dom:
         specifier: ^6.8.1
         version: 6.22.3(react-dom@18.2.0)(react@18.2.0)
+      tiny-invariant:
+        specifier: ^1.3.3
+        version: 1.3.3
     devDependencies:
       '@types/node':
         specifier: ^18.16.2
@@ -10970,7 +10976,7 @@ packages:
   /regenerator-transform@0.15.2:
     resolution: {integrity: sha512-hfMp2BoF0qOk3uc5V20ALGDS2ddjQaLrdl7xrGXvAIow7qeWRM2VA2HuCHkUKk9slq3VwEwLNK3DFBqDfPGYtg==}
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.24.0
     dev: false
 
   /regex-not@1.0.2:
@@ -11282,6 +11288,14 @@ packages:
     hasBin: true
     dependencies:
       glob: 9.3.5
+    dev: true
+
+  /rimraf@5.0.5:
+    resolution: {integrity: sha512-CqDakW+hMe/Bz202FPEymy68P+G50RfMQK+Qo5YUqc9SPipvbGjCGKd0RSKEelbsfQuw3g5NZDSrlZZAJurH1A==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dependencies:
+      glob: 10.3.10
     dev: true
 
   /rollup@3.29.4:
