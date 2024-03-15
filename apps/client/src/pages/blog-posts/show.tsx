@@ -24,6 +24,10 @@ export const BlogPostShow = () => {
     },
   });
 
+  
+
+  
+
   return (
     <Show isLoading={isLoading}>
       <Title level={5}>{"ID"}</Title>

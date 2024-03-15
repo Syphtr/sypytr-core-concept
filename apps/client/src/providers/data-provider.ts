@@ -1,11 +1,13 @@
 import type { DataProvider } from "@refinedev/core";
 import invariant from "tiny-invariant";
 
-const API_URL = "https://api.fake-rest.refine.dev";
+const API_URL = "http://localhost:5050";
 
 export const dataProvider: DataProvider = {
   getOne: async ({ resource, id, meta }) => {
-    const response = await fetch(`${API_URL}/${resource}/${id}`);
+    const response = await fetch(`${API_URL}/${resource}`);
+
+    console.log(response)
 
     if (response.status < 200 || response.status > 299) throw response;
 
@@ -43,7 +45,7 @@ export const dataProvider: DataProvider = {
       });
     }
 
-    const response = await fetch(`${API_URL}/${resource}?${params}`);
+    const response = await fetch(`${API_URL}/${resource}`);
 
     if (response.status < 200 || response.status > 299) throw response;
 
