@@ -1,9 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { CreateProfileDto } from './dto/create-profile.dto';
-// import { UpdateProfileDto } from './dto/update-profile.dto';
+import { UpdateProfileDto } from './dto/update-profile.dto';
+import { PrismaService } from '../utils/prisma.service';
 
 @Injectable()
 export class ProfilesService {
+  constructor(private prisma: PrismaService) {}
   private readonly profiles = [
     {
       id: 1,
@@ -112,11 +114,11 @@ export class ProfilesService {
     return result;
   }
 
-  // update(id: number, updateProfileDto: UpdateProfileDto) {
-  //   return `This action updates a #${id} profile`;
-  // }
+  update(id: number, updateProfileDto: UpdateProfileDto) {
+    return `This action updates a #${id} profile`;
+  }
 
-  // remove(id: number) {
-  //   return `This action removes a #${id} profile`;
-  // }
+  remove(id: number) {
+    return `This action removes a #${id} profile`;
+  }
 }
