@@ -1,26 +1,27 @@
 import { Injectable } from '@nestjs/common';
-import { CreateSearchDto } from './dto/create-search.dto';
-import { UpdateSearchDto } from './dto/update-search.dto';
+import { PrismaService } from '../database/prisma.service';
+import { SearchRepository } from './search.repository';
+import { Profile } from '@prisma/client';
 
 @Injectable()
 export class SearchService {
-  create(createSearchDto: CreateSearchDto) {
-    return 'This action adds a new search';
+  constructor(
+    private prisma: PrismaService,
+    private repository: SearchRepository,
+  ) {}
+
+  async getAllProfiles() {
+    return this.repository.findAllProfiles();
   }
 
-  findAll() {
-    return `This action returns all search`;
+  async getProfileById(id: number): Promise<Profile> {
+    return this.repository.findProfileById(id);
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} search`;
-  }
-
-  update(id: number, updateSearchDto: UpdateSearchDto) {
-    return `This action updates a #${id} search`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} search`;
+  async getProfilesByParams(
+    state: string,
+    firstName: string,
+  ): Promise<Profile[]> {
+    return this.repository.findProfilesByParams(state, firstName);
   }
 }

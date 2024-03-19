@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { SearchService } from './search.service';
-import { SearchController } from './search.controller';
+import { SearchRepository } from './search.repository';
+import { PrismaModule } from '../database/prisma.module';
+import { SearchResolver } from './search.resolver';
 
 @Module({
-  controllers: [SearchController],
-  providers: [SearchService],
+  imports: [PrismaModule],
+  providers: [SearchService, SearchRepository, SearchResolver],
 })
 export class SearchModule {}
