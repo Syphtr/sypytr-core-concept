@@ -11,6 +11,11 @@ import {
 import stylesheet from "./styles/tailwind.css";
 
 export const links: LinksFunction = () => [
+  {
+    rel: "icon",
+    href: "/favicon.png",
+    type: "image/png",
+  },
   { rel: "stylesheet", href: stylesheet },
 ];
 
